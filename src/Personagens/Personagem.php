@@ -1,6 +1,7 @@
 <?php
 
 namespace Ringue\Personagens;
+use Ringue\Armas\Arma;
 
 abstract class Personagem 
 {
@@ -12,7 +13,42 @@ abstract class Personagem
     protected int $forca;
     // needs to be 1 till 10
 
-    public function atacar(){}
-    public function defender(){}
+    protected int $ataque;
+    // needs to be 1 till 10
 
+    protected int $defesa;
+    
+    protected Arma $arma;
+
+    public function atacar(): int
+    {
+        return $this->ataque + $this->forca + $this->arma->ataque();
+    }
+
+    public function precisao(): int 
+    {
+        return $this->precisao;
+    }
+
+    public function life(): int 
+    {
+        return $this->hp;
+    }
+
+    public function tirarLife(int $dano): self
+    {
+        $this->hp -= $dano;
+        
+        return $this;
+    }
+
+    public function arma(): Arma
+    {
+        return $this->arma;
+    }
+
+    public function defender()
+    {}
+
+    public abstract function equiparArma(Arma $arma): self;
 }

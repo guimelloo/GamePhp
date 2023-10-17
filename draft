@@ -1,0 +1,134 @@
+
+// abstract Class Personagem
+// {
+//     public string $nome;
+//     public bool $armadura;
+//     public int $hp;
+//     public int $forca;
+//     public int $defesa;
+//     public int $level;
+
+//     abstract public function atacar();
+
+//     abstract public function defender();
+
+//     public function correr(): int
+//     {
+//         return 20;
+//     } 
+// }
+
+// class Boxeador extends Personagem
+// {
+//     public function defender()
+//     {
+
+//     }
+
+//     public function atacar()
+//     {
+        
+//     }
+
+    
+// }
+
+// abstract Class Arma
+// {
+//     public string $arma;
+// }
+
+// Class Pistola extends Arma 
+// {
+//     public string $arma = 'pistola';
+// }
+
+// Class ArcoFlecha extends Arma 
+// {
+//     public string $arma = 'arco-flecha';
+// }
+
+// Class Espada extends Arma 
+// {
+//     public string $arma = 'espada';
+// }
+
+// class Arqueiro 
+// {
+//     public string $nome = 'arqueiro';
+//     public bool $armadura = false;
+//     public int $hp = 100;
+//     public int $forca = 4;
+//     public int $defesa = 2;
+
+//     public function atacar(ArcoFlecha $arma)
+//     {
+//         echo 'O Arqueiro atacou com um '.$arma->arma.'<br>';
+//     }
+//     public function defender()
+//     {
+//         echo 'O arqueiro foi atacado'.'<br>';
+
+//         if(rand(1,10) == $this->defesa){
+//             echo 'Golpe foi defendido, voce derrotou esse inimigo';
+//         }else{
+//             echo 'o arqueiro foi atingido tente novamente (f5)';
+//         }
+//     }
+
+// }
+
+// class Usuario extends Personagem
+// {
+//     public string $nome;
+//     public bool $armadura = false;
+//     public int $hp = 100;
+//     public int $forca = 2;
+//     public int $defesa = 2;
+//     public int $level = 1;
+
+//     public function getNome(){
+//         return $this->nome;
+//     }
+//     public function setNome($n){
+//         $this->nome = $n;
+//     }
+
+
+//     public function atacar(ArcoFlecha $arma)
+//     {
+//         echo $this->nome.' atacou com um '.$arma->arma.'<br>';
+//     }
+//     public function defender(Samurai $samurai)
+//     {
+//         echo $this->nome.' foi atacado por um '.$samurai->nome.'<br>';
+
+//         if(rand(1,10) == $this->defesa){
+//             echo 'Golpe foi defendido, voce derrotou esse inimigo';
+//         }else{
+//             echo 'o arqueiro foi atingido tente novamente (f5)';
+//         }
+//     }
+// }
+
+// class Samurai 
+// {
+//     public string $nome = 'samurai';
+//     public int $hp = 150;
+//     public int $ataque = 190;
+//     public bool $escudo = true;
+
+//     public function atacar(Espada $espada){}
+//     public function defender(){}
+// }
+
+// class Soldado 
+// {
+//     public string $nome = 'soldado';
+//     public int $hp = 210;
+//     public int $ataque = 175;
+
+//     public function atacar(){}
+//     public function defender(){}
+// }
+

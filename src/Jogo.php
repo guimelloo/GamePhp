@@ -47,7 +47,6 @@ class Jogo
     {
         do {
             $passouDeFase = $fase->setPlayer($this->player)->run();
-            
             sleep(1);
         } while (! $passouDeFase);
     }

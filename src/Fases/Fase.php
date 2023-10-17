@@ -6,6 +6,8 @@ use Ringue\Personagens\Personagem;
 
 abstract class Fase
 {
+    const denisEhLindo = 12;
+
     protected Personagem $player;
 
     public function __construct(
