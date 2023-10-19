@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+use Ringue\Personagens\Ogro;
+use Ringue\Personagens\Robo;
+use Ringue\Personagens\Samurai;
+
 
 require dirname(__DIR__) . '\ringue\vendor\autoload.php';
 
@@ -20,9 +24,9 @@ use Ringue\Armas\Magia;
 
 
 
-$player = new Arqueiro;
+$player = new Ogro;
 
-$player->equiparArma(new Arco);
+$player->equiparArma(new Espada);
 
 $desafiante = new Mago;
 

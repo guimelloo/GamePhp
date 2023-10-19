@@ -5,19 +5,19 @@ use Ringue\Armas\Arma;
 use Ringue\Armas\Bala;
 use Ringue\Personagens\Personagem;
 
-class Soldado implements Personagem
+class Robo implements Personagem
 {
-    private int $hp = 170;
+    private int $hp = 150;
     private Bala $arma;
 
     public function nome(): string
     {
-        return 'Soldado';
+        return 'Robo';
     }
 
     public function forca(): int
     {
-        return 5;
+        return 8;
     }
 
     public function hp(): int
@@ -27,17 +27,17 @@ class Soldado implements Personagem
 
     public function ataque(): int
     {
-        return 5;
+        return 7;
     }
 
     public function precisao(): int 
     {
-        return 7;
+        return 3;
     }
 
     public function defesa(): int
     {
-        return 3;
+        return 2;
     }
 
     public function atacar(): int

@@ -3,32 +3,65 @@
 namespace Ringue\Personagens;
 use Ringue\Armas\Arma;
 use Ringue\Armas\Magia;
+use Ringue\Personagens\Personagem;
 
-class Mago extends Personagem
+class Mago implements Personagem
 {
-    protected string $nome = 'mago';
-    protected int $hp = 230;
-    // needs to be 100 till 300
-    protected int $precisao = 5;
-     // needs to be 1 till 10
-    protected int $forca = 3;
+    private int $hp = 120;
+    private Magia $arma;
 
-    protected int $ataque = 5;
+    public function nome(): string
+    {
+        return 'Mago';
+    }
 
-    protected int $defesa = 5;
+    public function forca(): int
+    {
+        return 7;
+    }
 
+    public function hp(): int
+    {
+        return $this->hp;
+    }
 
-    // needs to be 1 till 10
-    
-    public function defender(){}
+    public function ataque(): int
+    {
+        return 5;
+    }
 
-    public function equiparArma(Arma $arma): self
-    {       
-        if (! $arma instanceof Magia) {
-            throw new \Exception('A arma que voce passou nao eh compativel com esse jogador');    
-        }
+    public function precisao(): int 
+    {
+        return 5;
+    }
 
-        $this->arma = $arma;
+    public function defesa(): int
+    {
+        return 4;
+    }
+
+    public function atacar(): int
+    {
+        return $this->ataque() + $this->forca() + $this->arma()->ataque();
+    }
+
+    public function tirarLife(int $dano): self
+    {
+        $this->hp -= $dano;
+        
+        return $this;
+    }
+
+    public function arma(): Arma
+    {
+        return $this->arma;
+    }
+
+    public function defender()
+    {}
+    public function equiparArma(Arma $espada): self
+    {
+        $this->arma = $espada;
 
         return $this;
     }

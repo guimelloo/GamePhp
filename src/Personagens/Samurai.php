@@ -1,26 +1,67 @@
 <?php
 
 namespace Ringue\Personagens;
+use Ringue\Armas\Arma;
 use Ringue\Armas\Lamina;
+use Ringue\Personagens\Personagem;
 
-class Samurai extends Personagem
+class Samurai implements Personagem
 {
-    protected string $nome = 'samurai';
-    protected int $hp = 175;
-    // needs to be 100 till 300
-    protected int $precisao = 4;
-     // needs to be 1 till 10
-    protected int $forca = 5;
-    // needs to be 1 till 10
-    protected Lamina $arma;
-    
-    public function atacar(){}
+    private int $hp = 200;
+    private Lamina $arma;
 
-    public function defender(){}
-    
-    public function equiparArma(Lamina $arma)
+    public function nome(): string
     {
-        $this->arma = $arma;
+        return 'Samurai';
+    }
+
+    public function forca(): int
+    {
+        return 7;
+    }
+
+    public function hp(): int
+    {
+        return $this->hp;
+    }
+
+    public function ataque(): int
+    {
+        return 5;
+    }
+
+    public function precisao(): int 
+    {
+        return 5;
+    }
+
+    public function defesa(): int
+    {
+        return 2;
+    }
+
+    public function atacar(): int
+    {
+        return $this->ataque() + $this->forca() + $this->arma()->ataque();
+    }
+
+    public function tirarLife(int $dano): self
+    {
+        $this->hp -= $dano;
+        
+        return $this;
+    }
+
+    public function arma(): Arma
+    {
+        return $this->arma;
+    }
+
+    public function defender()
+    {}
+    public function equiparArma(Arma $espada): self
+    {
+        $this->arma = $espada;
 
         return $this;
     }

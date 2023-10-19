@@ -1,44 +1,67 @@
 <?php
 
 namespace Ringue\Personagens;
-
 use Ringue\Armas\Arma;
+use Ringue\Personagens\Personagem;
 use Ringue\Armas\Flecha;
 
-class Arqueiro extends Personagem
+class Arqueiro implements Personagem
 {
-    protected string $nome = 'arqueiro';
-    protected int $hp = 190;
-    // needs to be 100 till 300
-    protected int $precisao = 4;
-     // needs to be 1 till 10
-    protected int $forca = 6;
-    // needs to be 1 till 10
+    private int $hp = 190;
+    private Flecha $arma;
 
-    protected int $ataque = 2;
-
-    protected int $defesa = 4;
-
-    public function atacar(): int
+    public function nome(): string
     {
-        return parent::atacar() + 2;        
+        return 'Arqueiro';
+    }
+
+    public function forca(): int
+    {
+        return 6;
+    }
+
+    public function hp(): int
+    {
+        return $this->hp;
+    }
+
+    public function ataque(): int
+    {
+        return 2;
     }
 
     public function precisao(): int 
     {
-        return parent::precisao() + 2;
+        return 9;
     }
 
+    public function defesa(): int
+    {
+        return 4;
+    }
 
-    public function defender(){}
-    
-    public function equiparArma(Arma $arma): self
-    {       
-        if (! $arma instanceof Flecha) {
-            throw new \Exception('A arma que voce passou nao eh compativel com esse jogador');
-        }
+    public function atacar(): int
+    {
+        return $this->ataque() + $this->forca() + $this->arma()->ataque();
+    }
 
-        $this->arma = $arma;
+    public function tirarLife(int $dano): self
+    {
+        $this->hp -= $dano;
+        
+        return $this;
+    }
+
+    public function arma(): Arma
+    {
+        return $this->arma;
+    }
+
+    public function defender()
+    {}
+    public function equiparArma(Arma $espada): self
+    {
+        $this->arma = $espada;
 
         return $this;
     }

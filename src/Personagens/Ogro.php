@@ -2,22 +2,22 @@
 
 namespace Ringue\Personagens;
 use Ringue\Armas\Arma;
-use Ringue\Armas\Bala;
+use Ringue\Armas\Lamina;
 use Ringue\Personagens\Personagem;
 
-class Soldado implements Personagem
+class Ogro implements Personagem
 {
-    private int $hp = 170;
-    private Bala $arma;
+    private int $hp = 290;
+    private Lamina $arma;
 
     public function nome(): string
     {
-        return 'Soldado';
+        return 'Ogro';
     }
 
     public function forca(): int
     {
-        return 5;
+        return 9;
     }
 
     public function hp(): int
@@ -27,17 +27,17 @@ class Soldado implements Personagem
 
     public function ataque(): int
     {
-        return 5;
+        return 7;
     }
 
     public function precisao(): int 
     {
-        return 7;
+        return 1;
     }
 
     public function defesa(): int
     {
-        return 3;
+        return 5;
     }
 
     public function atacar(): int
